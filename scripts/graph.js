@@ -2,7 +2,7 @@ const colours = {
     waveform1: "#23863688",
     waveform2: "#38a6ff88",
     waveform3: "#9003fc88",
-    summation: "#EF633F",
+    summation: "#FFFFFF",
     axes: "#ffffff"
 }
 
@@ -10,7 +10,7 @@ const wave1Values = {
     amplitude: 50,
     frequency: 0.01,
     phase: 5,
-    velocity: 2,
+    velocity: 1.75,
 }
 
 const wave2Values = {
@@ -108,6 +108,77 @@ function plotFunction(ctx, time, waveNumber) {
 
 }
 
+
+function plotHeartRate(ctx, time) {
+    var width = ctx.canvas.width;
+    var height = ctx.canvas.height;
+
+    let term1, term2, term3, sum;
+
+    const xScaling = 40;
+    const period = (6* Math.PI / 2 ) * xScaling;
+
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "rgba(255,255,255)";
+    //ctx.fillStyle = "rgba(255,255,255,0.1)";
+
+    isSummationDashed= false;
+    if (isSummationDashed) {
+        ctx.setLineDash([15, 20]);
+    } else {
+        ctx.setLineDash([]);
+    }
+    
+    
+    var y = 0;
+    
+    let pattern = [];
+    for (let x = 1; x < 2000; x++) {
+        t = x/xScaling;
+        
+        term1 = (Math.sin(((t)*4)) + Math.sin(16*t) / 4);
+        term2 = 3;
+        term3 = (-(Math.floor(Math.sin(2*t)) + 0.1));
+
+        term4 = 1 - Math.round((x%period) / period);
+
+        sum = term1 * term2 * term3 * term4;
+
+        pattern.push(sum * 40);
+        
+    }
+
+    for (x = 0; x < width; x++) {
+        ctx.lineTo(x, pattern[x] + height/2);
+    }
+
+    ctx.stroke();
+    ctx.save();
+
+    //ctx.rect(time-1500, 0, 1000, canvas.height);
+    ctx.clearRect(time, 0, 10000, canvas.height);
+
+    for(let i = 0; i < 10; i++){
+        ctx.clearRect(time-(i*2000), 0, 1000, canvas.height);
+    }
+
+    
+    /*pattern.forEach((term, index) => {
+
+        if ((index < time && index > time - 1000)){
+
+            ctx.lineTo(index, term + height/2);
+            
+        }
+        
+    })*/
+
+
+
+
+
+}
+
 function plotSummation(ctx, time1, time2, time3) {
     var width = ctx.canvas.width;
     var height = ctx.canvas.height;
@@ -160,9 +231,9 @@ function drawFrame() {
     document.getElementById("canvas").height = window.innerHeight/2;
     var context = canvas.getContext("2d");
 
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    //context.clearRect(0, 0, canvas.width, canvas.height);
     //showAxes(context);
-    context.save();
+    //context.save();
     
     wave1_direction = "forward";
     wave2_direction = "forward";
@@ -203,22 +274,26 @@ function drawFrame() {
         wave3_time = 0;
     }
 
-    plotFunction(context, wave1_time, 1);
-    plotFunction(context, wave2_time, 2);
-    plotFunction(context, wave3_time, 3);
+    //plotFunction(context, wave1_time, 1);
+    //plotFunction(context, wave2_time, 2);
+    //plotFunction(context, wave3_time, 3);
 
     isSummationEnabled = true;
 
     if (isSummationEnabled) {
-        plotSummation(context, wave1_time, wave2_time, wave3_time);
+        //plotSummation(context, wave1_time, wave2_time, wave3_time);
     }
+    
+    plotHeartRate(context, wave1_time);
 
-    context.restore();
+    //context.restore();
     
 
 
     window.requestAnimationFrame(drawFrame);
 }   
+
+
 
 function init() {
     window.requestAnimationFrame(drawFrame);
