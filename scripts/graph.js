@@ -1,7 +1,7 @@
 const colours = {
-    waveform1: "#238636aa",
-    waveform2: "#38a6ffaa",
-    waveform3: "#00000000",
+    waveform1: "#23863688",
+    waveform2: "#38a6ff88",
+    waveform3: "#9003fc88",
     summation: "#EF633F",
     axes: "#ffffff"
 }
@@ -21,8 +21,8 @@ const wave2Values = {
 }
 
 const wave3Values = {
-    amplitude: 0,
-    frequency: 0.001,
+    amplitude: 40,
+    frequency: 0.005,
     phase: 0,
     velocity: -3,
 }
