@@ -22,7 +22,7 @@ p {
 }
 
 h2, h3, * {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: white;
     margin-bottom: 5px;
 }
@@ -54,7 +54,7 @@ ul li::before {
 }
 
 li {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 550;
     font-size: 17px;
 }
@@ -63,7 +63,7 @@ li {
     display: flex;
     flex-direction: column;
     padding-left: 3vw;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: white
 }
 
