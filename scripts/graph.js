@@ -47,7 +47,7 @@ function showAxes(ctx) {
     var xMin = 0;
     
     ctx.beginPath();
-    ctx.strokeStyle = "rgb(128,128,128)";
+    ctx.strokeStyle = "rgba(128,128,128)";
     
     // X-Axis
     ctx.moveTo(xMin, height/2);
@@ -115,12 +115,11 @@ function plotHeartRate(ctx, time) {
 
     let term1, term2, term3, sum;
 
-    const xScaling = 40;
+    const xScaling = 50;
     const period = (6* Math.PI / 2 ) * xScaling;
 
     ctx.lineWidth = 3;
-    ctx.strokeStyle = "rgba(255,255,255)";
-    //ctx.fillStyle = "rgba(255,255,255,0.1)";
+
 
     isSummationDashed= false;
     if (isSummationDashed) {
@@ -148,6 +147,35 @@ function plotHeartRate(ctx, time) {
         
     }
 
+    let relativeTime = (time-1000) % 2000;
+    let relativeTime2 = (time) % 2000;
+    console.log(relativeTime/2000);
+
+    let position = relativeTime/2000;
+    let position2 = relativeTime2/2000;
+
+    //ctx.rect(relativeTime, 0, 1, height);
+
+
+    //let gradient = ctx.createLinearGradient(-500, height/2, width+500, height/2);
+
+    //if(position > 0 && position < 1) {
+    //    gradient.addColorStop(position, "rgb(255,255,255,0)");
+    //}
+    //if(position > 0 && position < 1) {
+    //    gradient.addColorStop(position2, "rgb(255,255,255,255)");
+    //}
+    //gradient.addColorStop(0, "rgb(255,255,255,0)");
+    //gradient.addColorStop(0.5, "rgb(255,255,255,255)");
+    //gradient.addColorStop(1, "rgb(255,255,255,0)");
+    
+    //gradient.addColorStop(1, "rgb(255,255,255,255)");
+    //gradient.addColorStop(position4, "rgb(255,255,255,255)");
+    //gradient.addColorStop(position5, "rgb(255,255,255,0)");*/
+
+    ctx.strokeStyle = "rgb(255,255,255)";
+    ctx.fillStyle = "rgb(255,255,255)";
+
     for (x = 0; x < width; x++) {
         ctx.lineTo(x, pattern[x] + height/2);
     }
@@ -155,12 +183,90 @@ function plotHeartRate(ctx, time) {
     ctx.stroke();
     ctx.save();
 
+    ctx.beginPath();
+    ctx.fillStyle = '#0d1117';
+    ctx.strokeStyle = '#0d1117';
     //ctx.rect(time-1500, 0, 1000, canvas.height);
     ctx.clearRect(time, 0, 10000, canvas.height);
 
-    for(let i = 0; i < 10; i++){
-        ctx.clearRect(time-(i*2000), 0, 1000, canvas.height);
+    for (let i = 0; i < 500; i++){
+        ctx.fillRect(time-(i*2500), 0, 1000, canvas.height);
     }
+
+    ctx.stroke();
+    ctx.save();
+
+    ctx.fillStyle = '#0d1117cc';
+
+    for (let i = 0; i < 500; i++){
+
+        ctx.fillRect(time-(i*2500), 0, 1300, canvas.height);
+    }
+
+    ctx.fillStyle = '#0d1117bb';
+
+    for (let i = 0; i < 500; i++){
+
+        ctx.fillRect(time-(i*2500), 0, 1250, canvas.height);
+    }
+
+    ctx.stroke();
+    ctx.save();
+
+
+    ctx.fillStyle = '#0d111777';
+
+    for (let i = 0; i < 500; i++){
+
+        ctx.fillRect(time-(i*2500), 0, 1150, canvas.height);
+    }
+
+    ctx.stroke();
+    ctx.save();
+
+
+    ctx.fillStyle = '#0d111755';
+
+    for (let i = 0; i < 500; i++){
+
+        ctx.fillRect(time-(i*2500), 0, 1100, canvas.height);
+    }
+
+    ctx.stroke();
+    ctx.save();
+
+    
+    ctx.fillStyle = '#0d111711';
+
+    for (let i = 0; i < 500; i++){
+
+        ctx.fillRect(time-(i*2500), 0, 1050, canvas.height);
+    }
+
+    ctx.stroke();
+    ctx.save();
+
+    ctx.fillStyle = '#0d111705';
+
+    for (let i = 0; i < 500; i++){
+
+        ctx.fillRect(time-(i*2500), 0, 1025, canvas.height);
+    }
+
+    ctx.stroke();
+    ctx.save();
+
+    ctx.fillStyle = '#0d111701';
+
+    for (let i = 0; i < 500; i++){
+
+        ctx.fillRect(time-(i*2500), 0, 1010, canvas.height);
+    }
+
+    ctx.stroke();
+    ctx.save();
+
+    
 
     
     /*pattern.forEach((term, index) => {
@@ -172,11 +278,6 @@ function plotHeartRate(ctx, time) {
         }
         
     })*/
-
-
-
-
-
 }
 
 function plotSummation(ctx, time1, time2, time3) {
@@ -291,7 +392,7 @@ function drawFrame() {
 
 
     window.requestAnimationFrame(drawFrame);
-}   
+}
 
 
 
