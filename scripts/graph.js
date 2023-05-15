@@ -190,7 +190,7 @@ function plotHeartRate(ctx, time) {
     ctx.clearRect(time, 0, 10000, canvas.height);
 
     for (let i = 0; i < 500; i++){
-        ctx.fillRect(time-(i*2500), 0, 1000, canvas.height);
+        ctx.fillRect(time-(i*1600), 0, 150, canvas.height);
     }
 
     ctx.stroke();
@@ -200,14 +200,14 @@ function plotHeartRate(ctx, time) {
 
     for (let i = 0; i < 500; i++){
 
-        ctx.fillRect(time-(i*2500), 0, 1300, canvas.height);
+        ctx.fillRect(time-(i*1600), 0, 600, canvas.height);
     }
 
     ctx.fillStyle = '#0d1117bb';
 
     for (let i = 0; i < 500; i++){
 
-        ctx.fillRect(time-(i*2500), 0, 1250, canvas.height);
+        ctx.fillRect(time-(i*1600), 0, 500, canvas.height);
     }
 
     ctx.stroke();
@@ -218,7 +218,7 @@ function plotHeartRate(ctx, time) {
 
     for (let i = 0; i < 500; i++){
 
-        ctx.fillRect(time-(i*2500), 0, 1150, canvas.height);
+        ctx.fillRect(time-(i*1600), 0, 450, canvas.height);
     }
 
     ctx.stroke();
@@ -229,7 +229,7 @@ function plotHeartRate(ctx, time) {
 
     for (let i = 0; i < 500; i++){
 
-        ctx.fillRect(time-(i*2500), 0, 1100, canvas.height);
+        ctx.fillRect(time-(i*1600), 0, 400, canvas.height);
     }
 
     ctx.stroke();
@@ -240,7 +240,7 @@ function plotHeartRate(ctx, time) {
 
     for (let i = 0; i < 500; i++){
 
-        ctx.fillRect(time-(i*2500), 0, 1050, canvas.height);
+        ctx.fillRect(time-(i*1600), 0, 350, canvas.height);
     }
 
     ctx.stroke();
@@ -250,7 +250,7 @@ function plotHeartRate(ctx, time) {
 
     for (let i = 0; i < 500; i++){
 
-        ctx.fillRect(time-(i*2500), 0, 1025, canvas.height);
+        ctx.fillRect(time-(i*1600), 0, 250, canvas.height);
     }
 
     ctx.stroke();
@@ -260,7 +260,7 @@ function plotHeartRate(ctx, time) {
 
     for (let i = 0; i < 500; i++){
 
-        ctx.fillRect(time-(i*2500), 0, 1010, canvas.height);
+        ctx.fillRect(time-(i*1600), 0, 200, canvas.height);
     }
 
     ctx.stroke();
