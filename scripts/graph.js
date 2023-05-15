@@ -1,7 +1,7 @@
 const colours = {
     waveform1: "#238636aa",
     waveform2: "#38a6ffaa",
-    //waveform3: "#",
+    waveform3: "#00000000",
     summation: "#EF633F",
     axes: "#ffffff"
 }
