@@ -17,14 +17,14 @@ const wave2Values = {
     amplitude: 40,
     frequency: 0.003,
     phase: 0,
-    velocity: -2,
+    velocity: -1.4,
 }
 
 const wave3Values = {
     amplitude: 40,
     frequency: 0.005,
     phase: 0,
-    velocity: -3,
+    velocity: -0.5,
 }
 
 const oldWave2Values = {
